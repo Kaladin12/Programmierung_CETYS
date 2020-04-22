@@ -1,0 +1,12 @@
+{
+    "nombre": "Elian",
+    "segundoNombre":null,
+    "apellido": "Cruz",
+    "edad": 18,
+    "autos":["Malibu","Attitude"],
+    "casado":false,
+    "direccion":{
+        "calle":"Av ejidatarios 1215",
+        "ciudad":"Tijuana"
+    }
+}

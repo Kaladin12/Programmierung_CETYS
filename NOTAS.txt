@@ -1,0 +1,18 @@
+Las tuplas son colecciones ordenadas e inalterables
+
+Se pueden unir dos tuplas con la funcion zip()
+
+para imprimirla se utiliza print(tuple(zip()))
+
+
+lambda variables: operacion
+
+map(funcion, iterables)
+x=[a,b,c]
+y=[d,e,f]
+map(lambda n1,n2: n1+n2, x,y)
+
+eval() convierte de string a int junto con la jerarqui de operaciones.
+
+
+

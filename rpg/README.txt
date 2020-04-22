@@ -1,0 +1,1 @@
+Dejar todos los archivos (.py, .txt) en el mismo directorio
