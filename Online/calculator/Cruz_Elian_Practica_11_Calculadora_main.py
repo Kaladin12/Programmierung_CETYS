@@ -32,9 +32,9 @@ def redondear(numero):
         espaciosRestante=12-len(entero)
         if espaciosRestante>0:
             decimal=round(float('0.'+decimal), espaciosRestante)
-            
-    print(entero, decimal, espaciosRestante)
-    return entero+'.'+str(decimal)[2:]
+        return entero+'.'+str(decimal)[2:]
+    else:
+        return numero
 
 def clear():
     global result
@@ -44,25 +44,30 @@ def clear():
 def masMenos():
     global result
     igual()
-    result=-int(result)
+    result=-float(result)
+    redondear(result)
     text.set(result)
     result=str(result)
 
 def porcentaje(i):
     global result
-    num=int(i)*1/100
+    num=float(i)*1/100
     result=result+str(num)
     text.set(result)
 
 def igual():
     global result
     text.set('')
-    aux=result
-    result=eval(result)
-    result=redondear(result)
-    text.set(result)
-    result=str(result)
-    aux=''
+    if '/0' in result and result[-2:]=='/0':
+        result=''
+    else:
+        aux=result
+        result=eval(result)
+        result=redondear(result)
+        text.set(result)
+        result=str(result)
+        aux=''
+    
 
 def appendAsString(i):
     operadores=['+','-','*','/']
@@ -81,12 +86,13 @@ def appendAsString(i):
             if contador>=2:
                 break
         if len(misOperadores)<2:
-            result=result[:len(result)-indicesOperadores[0]]
-            porcentaje(myvar[:indicesOperadores[0]][::-1])
+            if len(misOperadores)==0:
+                result=''
+            else:
+                result=result[:len(result)-indicesOperadores[0]]
+                porcentaje(myvar[:indicesOperadores[0]][::-1])
             
         else:
-            print(misOperadores, indicesOperadores, myvar[:indicesOperadores[0]][::-1])
-            print(myvar[indicesOperadores[0]+1:][:indicesOperadores[1]-indicesOperadores[0]-1][::-1])
             numeroPorcent= myvar[:indicesOperadores[0]][::-1]
             numeroOriginal=myvar[indicesOperadores[0]+1:][:indicesOperadores[1]-indicesOperadores[0]-1][::-1]
             result=result[:len(result)-indicesOperadores[0]]
